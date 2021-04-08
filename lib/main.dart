@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/next_page.dart';
-
+import 'package:flutter_app/date_time.dart';
 
 
 void main() {
@@ -12,9 +12,15 @@ void main() {
 
 
 
-class FirstRoute extends StatelessWidget {
+class FirstRoute extends StatefulWidget {
 
+  @override
+  _FirstRouteState createState() => _FirstRouteState();
+}
+
+class _FirstRouteState extends State<FirstRoute> {
   String text = 'オラオラオラオラオラオラ';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
