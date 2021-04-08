@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/next_page.dart';
 
-import 'next_page.dart';
+
 
 void main() {
   runApp(MaterialApp(
@@ -9,7 +10,11 @@ void main() {
   ));
 }
 
+
+
 class FirstRoute extends StatelessWidget {
+
+  String text = 'オラオラオラオラオラオラ';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,14 +22,31 @@ class FirstRoute extends StatelessWidget {
         title: Text('First Route'),
       ),
       body: Center(
-        child: ElevatedButton(
-          child: Text('Open route'),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => SecondRoute()),
-            );
-          },
+
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Image(
+              image: NetworkImage('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
+            ),
+            Icon(
+              Icons.favorite,
+              size: 200,
+              color: Colors.pink,
+            ),
+            RaisedButton(
+              child: Text(text),
+              onPressed: () async {
+                final result =  await Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SecondRoute('きょうこちゃんかわいい')),
+                );
+                text = result;
+                print(result);
+              },
+            ),
+          ],
         ),
       ),
     );
